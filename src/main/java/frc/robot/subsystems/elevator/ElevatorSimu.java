@@ -59,13 +59,12 @@ public class ElevatorSimu extends Elevator {
 
         double voltage = controller.calculate(sim.getPositionMeters(), setpoint.position);
         sim.setInputVoltage(voltage);
+        sim.update(0.02);
         SmartDashboard.putNumber("Elevator/voltage", voltage);
 
         // LOG THE CURRENT HEIGHT OF THE ELEVATOR
-
+        SmartDashboard.putNumber("Elevator/height", sim.getPositionMeters());
         // UPDATE THE ELEVATOR VISUALIZER
-
-
-        
+        visualizer.update(sim.getPositionMeters());
     }
 }

@@ -7,4 +7,18 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 public class ElevatorSetState extends InstantCommand {
     // WRITE THE COMMAND
     // Don't forget addRequirements(...) in your constructor
+    private final Elevator elevator;
+    private ElevatorState elevatorState;
+
+    public ElevatorSetState(ElevatorState elevatorState) {
+        this.elevator = Elevator.getInstance();
+        this.elevatorState = elevatorState;
+
+        addRequirements(elevator);
+    }
+
+    @Override
+    public void initialize() {
+        elevator.setState(elevatorState);
+    }
 }

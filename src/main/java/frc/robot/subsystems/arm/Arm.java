@@ -13,8 +13,21 @@ public class Arm extends SubsystemBase {
     // It is the part where you create the static instance of your class...
     // Make sure to instantiate to ArmSim()
 
+    private static final Arm instance;
+
+    static {
+        instance = new ArmSim();
+    }
+
+    public static Arm getInstance() {
+        return instance;
+    }
+
     public enum ArmState {
-        ONE(Rotation2d.kZero);
+        ONE(Rotation2d.kZero),
+        TWO(Rotation2d.fromDegrees(45.0)),
+        THREE(Rotation2d.fromDegrees(90.0)),
+        FOUR(Rotation2d.fromDegrees(135.0));
         // WRITE 3 MORE ARM STATES: TWO THREE FOUR
 
         private Rotation2d targetAngle;

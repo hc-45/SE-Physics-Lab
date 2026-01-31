@@ -16,6 +16,9 @@ public class ElevatorVisualizer {
         instance = new ElevatorVisualizer();
     }
 
+    public ElevatorVisualizer getInstance() {
+        return instance;
+    }
     private final Mechanism2d canvas;
     private final MechanismRoot2d vertical;
     private final MechanismRoot2d elevator;
@@ -44,7 +47,8 @@ public class ElevatorVisualizer {
     
     public void update(double elevatorHeight) {
         // UPDATE THE POSITION OF THE ELEVATOR MECHANISM ROOT
-        e; // error to make you look at ts 
+        // error to make you look at ts
+        elevator.setPosition(8, elevatorHeight);
 
         SmartDashboard.putData("Visualizers/Elevator", canvas);
     }
